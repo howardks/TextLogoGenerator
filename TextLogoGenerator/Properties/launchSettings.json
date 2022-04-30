@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TextLogoGenerator (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "TextLogoGenerator (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

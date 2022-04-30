@@ -1,0 +1,153 @@
+﻿<!-- Project: Survey Assignment 7 
+     Author: Kaylie Howard
+     Description: A GUI that takes user entered text and allows the user to change its attributes to make it look like a custom text-logo -->
+    
+<Window
+    x:Class="TextLogoGenerator.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TextLogoGenerator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Vertical" Background="LightGray" >
+        <Grid Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="510" />
+                <ColumnDefinition Width="510" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0">
+                <TextBlock Margin="6" Text="Enter some text: " Foreground="Black" FontSize="18" />
+                <TextBox Name="inputBox" Text="Your text here!" Foreground="WhiteSmoke" Background="Black" FontSize="16" Width="375" Height="100" BorderThickness="0" TextWrapping="Wrap" />
+                <TextBlock Text="Font: " Margin="6" Foreground="Black" FontSize="18" />
+                <ComboBox PlaceholderText="Default" Width="200" Foreground="WhiteSmoke" Background="Black" HorizontalAlignment="Center" Margin="10" DropDownClosed="ComboBox_DropDownClosed">
+                    <x:String >Times New Roman</x:String>
+                    <x:String>Courier New</x:String>
+                    <x:String>Comic Sans MS</x:String>
+                    <x:String>Papyrus</x:String>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center">
+
+                <TextBlock Text="Size: " Margin="6" Foreground="Black" FontSize="18"/>
+                <Slider ValueChanged="Slider_ValueChanged" TickFrequency="10" TickPlacement="Inline" Minimum="1" Maximum="99" />
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="300" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Alignment: " Margin="6" Foreground="Black" FontSize="18" Grid.Column="0" Grid.Row="0"/>
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Button Name="a" Content="&lt;" Click="Button_Click" Margin="6" Background="Black" Grid.Column="0" Grid.Row="0" />
+                        <Button Name="b" Content=">&lt;" Click="Button_Click" Margin="6" Background="Black" Grid.Column="1" Grid.Row="0" />
+                        <Button Name="c" Content=">" Click="Button_Click" Margin="6" Background="Black" Grid.Column="2" Grid.Row="0" />
+                        <Button Name="d" Content="&lt;" Click="Button_Click" Margin="6" Background="Black" Grid.Column="0" Grid.Row="1" />
+                        <Button Name="e" Content=">&lt;" Click="Button_Click" Margin="6" Background="Black" Grid.Column="1" Grid.Row="1" />
+                        <Button Name="f" Content=">" Click="Button_Click" Margin="6" Background="Black" Grid.Column="2" Grid.Row="1" />
+                        <Button Name="g" Content="&lt;" Click="Button_Click" Margin="6" Background="Black" Grid.Column="0" Grid.Row="2" />
+                        <Button Name="h" Content=">&lt;" Click="Button_Click" Margin="6" Background="Black" Grid.Column="1" Grid.Row="2" />
+                        <Button Name="i" Content=">" Click="Button_Click" Margin="6" Background="Black" Grid.Column="2" Grid.Row="2" />
+                    </Grid>
+
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="280" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Background color: " FontSize="18" Foreground="Black" Margin="6" Grid.Column="0" Grid.Row="0"/>
+                    <Button Content="..." Background="Black" Margin="6" Grid.Column="1" Grid.Row="0">
+                        <Button.Flyout>
+                            <Flyout>
+                                <StackPanel>
+                                    <ColorPicker 
+                                ColorSpectrumShape="Ring"
+                                IsMoreButtonVisible="False"
+                                IsColorSliderVisible="True"
+                                IsColorChannelTextInputVisible="False"
+                                IsHexInputVisible="True"
+                                IsAlphaEnabled="False"
+                                IsAlphaSliderVisible="True"
+                                IsAlphaTextInputVisible="True" 
+                                ColorChanged="ColorPicker_BackgroundColorChanged"/>
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="280" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Text color: " FontSize="18" Foreground="Black" Margin="6"  Grid.Column="0" Grid.Row="0" />
+                    <Button Content="..." Background="Black" Margin="6" Grid.Column="1" Grid.Row="0">
+                        <Button.Flyout>
+                            <Flyout>
+                                <StackPanel>
+                                    <ColorPicker 
+                                ColorSpectrumShape="Ring"
+                                IsMoreButtonVisible="False"
+                                IsColorSliderVisible="True"
+                                IsColorChannelTextInputVisible="False"
+                                IsHexInputVisible="True"
+                                IsAlphaEnabled="False"
+                                IsAlphaSliderVisible="True"
+                                IsAlphaTextInputVisible="True" 
+                                ColorChanged="ColorPicker_TextColorChanged"/>
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+                <TextBlock Text="Border: " Margin="6" Foreground="Black" FontSize="18" />
+                <RadioButtons Name="rbs"  SelectedIndex="1" MaxColumns="4" VerticalAlignment="Center">
+                    <RadioButton x:Name="None" Content="None" Foreground="Black" Checked="RadioButtons_SelectionChanged" />
+                    <RadioButton x:Name="Small" Content="Small" Foreground="Black" Checked="RadioButtons_SelectionChanged" />
+                    <RadioButton x:Name="Medium" Content="Medium" Foreground="Black" Checked="RadioButtons_SelectionChanged" />
+                    <RadioButton x:Name="Large" Content="Large" Foreground="Black" Checked="RadioButtons_SelectionChanged" />
+                </RadioButtons>
+            </StackPanel>
+        </Grid>
+        <Border Name="borderBox"  BorderThickness="2" BorderBrush="#000000" Background="#FFFFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" Height="200" Width="1000">
+            <TextBox Name="outputText" Text="{Binding ElementName=inputBox,Path=Text}" FontSize="18" Foreground="Black" IsReadOnly="True" BorderThickness="0" />
+        </Border>
+
+
+    </StackPanel>
+
+</Window>
